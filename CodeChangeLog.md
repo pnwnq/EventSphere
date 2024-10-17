@@ -10,6 +10,7 @@
 - 在FunctionalDesign.md中添加初步的功能设计
 - 在README.md和ProjectRequirements.md中加入基础增强现实（AR）功能描述
 - 更新技术栈，包含ARCore和ARKit
+- 创建.gitignore文件
 
 ### 变更
 - 更新README.md以反映新的项目愿景和主要特点
@@ -17,6 +18,7 @@
 - 简化FunctionalDesign.md以匹配项目规模
 - 调整README.md的主要特点列表，突出简单性和趣味性
 - 更新技术栈部分，考虑使用Firebase或简单的自建服务器
+- 更新README.md中的联系信息和仓库URL
 
 ### 待办
 - 设置开发环境

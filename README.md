@@ -23,7 +23,7 @@
 
 ## 开始使用
 
-1. 克隆仓库：`git clone https://github.com/yourusername/eventsphere.git`
+1. 克隆仓库：`git clone https://github.com/pnwnq/EventSphere.git`
 2. 安装依赖：`flutter pub get`
 3. 配置AR开发环境：
    - Android: 设置 ARCore
@@ -46,7 +46,7 @@
 
 ## 联系我们
 
-- 项目维护者：[Your Name](mailto:your.email@example.com)
-- 项目主页：[https://github.com/yourusername/eventsphere](https://github.com/yourusername/eventsphere)
+- 项目维护者：pnwnq
+- 项目主页：[https://github.com/pnwnq/EventSphere](https://github.com/pnwnq/EventSphere)
 
 让我们一起，让朋友间的社交变得更有趣！🐳🎲🎉
