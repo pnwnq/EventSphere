@@ -1,0 +1,29 @@
+name: eventsphere
+description: A new Flutter project.
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  firebase_core: ^2.4.0
+  firebase_auth: ^4.2.0
+  cloud_firestore: ^4.2.0
+  arcore_flutter_plugin: ^0.1.0
+  arkit_plugin: ^1.0.5
+  shared_preferences: ^2.0.15
+  vector_math: ^2.1.0
+  flutter_local_notifications: ^9.1.5
+  share_plus: ^4.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true

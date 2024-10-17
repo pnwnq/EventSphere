@@ -1,0 +1,240 @@
+# 代码变更日志
+
+## [未发布]
+
+### 添加
+- 项目初始化
+- 创建基本文档结构：README.md, ProjectRequirements.md, FunctionalDesign.md, CodeChangeLog.md
+- 更新项目愿景，强调海洋和天空主题的UI设计
+- 在ProjectRequirements.md中添加详细的项目需求
+- 在FunctionalDesign.md中添加初步的功能设计
+- 在README.md和ProjectRequirements.md中加入基础增强现实（AR）功能描述
+- 更新技术栈，包含ARCore和ARKit
+- 创建.gitignore文件
+- 添加用户颜色标识系统
+- 实现事件投票和状态变化功能
+- 创建基于时间范围和数字代号的群组加入机制
+- 创建完整的Flutter项目结构
+- 创建 `lib/theme/app_theme.dart` 文件，定义应用的主题
+- 创建 `lib/pages/home_page.dart` 文件，实现基本的主页布局
+- 在主页中添加骰子图标和创建/加入活动的按钮
+- 创建 `lib/widgets/dice_widget.dart` 文件，实现可重用的骰子组件
+- 在主页中添加悬浮骰子按钮
+- 创建 `lib/pages/create_activity_page.dart` 文件，实现活动创建页面
+- 在活动创建页面中添加表单和骰子功能，用于随机生成活动详情
+- 创 `lib/pages/join_activity_page.dart` 文件，实现活动加入页面
+- 在活动加入页面中添加表单和骰子功能，用于随机生成活动代码
+- 创建 `lib/services/activity_service.dart` 文件，实现活动数据的本地存储和检索功能
+- 在 `pubspec.yaml` 中添加 `shared_preferences` 依赖
+- 创建 `lib/pages/activity_details_page.dart` 文件，实现活动详情页面
+- 在主页中添加 TabBar，分别显示已创建和已加入的活动
+- 完善 `lib/pages/activity_details_page.dart`，添加更多交互功能
+- 创建 `lib/services/ar_service.dart` 文件，实现基本的AR功能
+- 创建 `lib/pages/ar_view_page.dart` 文件，实现AR视图页面
+- 在活动详情页面中添加"查看AR效果"按钮
+- 在 `lib/services/ar_service.dart` 中添加新的AR元素：鱼和云
+- 在 `lib/pages/ar_view_page.dart` 中添加新的浮动按钮，用于添加不同的AR元素
+- 创建 `lib/services/user_service.dart` 文件，实现用户管理功能
+- 创建 `lib/pages/login_page.dart` 文件，实现登录页面
+- 在 `main.dart` 中添加用户认证逻辑
+- 创建 `lib/pages/register_page.dart` 文件，实现用户注册功能
+- 在注册页面中添加随机用户名生成功能，使用骰子组件
+- 在 `UserService` 中添加用户颜色生成功能
+- 在主页中显示当前用户的颜色标识
+- 创建 `lib/services/group_service.dart` 文件，实现群组管理功能
+- 创建 `lib/pages/groups_page.dart` 文件，实现群组列表页面
+- 在主页中添加群组页面入口
+- 在 `Group` 类中添加 `activityIds` 字段，用于存储群组内的活动
+- 在 `GroupService` 中添加 `addActivityToGroup` 方法
+- 在 `GroupsPage` 中添加创建群组活动的功能
+- 在 `ActivityService` 中添加 `getActivityById` 方法
+- 创建 `lib/pages/group_details_page.dart` 文件，实现群组详情页面
+- 在群组详情页面中添加查看群组活动列表和创建群组活动的功能
+- 在 `Activity` 类中添加投票功能
+- 在 `ActivityService` 中添加 `voteForActivity` 方法
+- 在群组详情页面中添加活动投票功能
+- 创建 `lib/games/ocean_riddle_game.dart` 文件，实现海洋主题猜谜游戏
+- 在群组详情页面中添加启动海洋猜谜游戏的按钮
+- 创建 `lib/pages/group_members_page.dart` 文件，实现群组成员管理功能
+- 在 `GroupService` 中添加 `removeMemberFromGroup` 方法
+- 在 `GroupService` 中添加 `createGroupWithCode` 和 `joinGroupWithCode` 方法
+- 在 `Group` 类中添加 `code` 和 `codeExpiration` 字段
+- 在群组页面中添加加入群组功能
+- 在活动详情页面中添加改进的投票功能UI
+- 显示用前投票状态和整体投票情况
+- 在 `Activity` 类中添加 `participantsCount` 字段，用于记录活动参与人数
+- 在 `ActivityService` 中添加 `joinActivity` 和 `leaveActivity` 方法
+- 在活动详情页面中添加参与和退出活动的功能
+- 在活动详情页面中显示参与人数
+- 在主页添加活动搜索功能
+- 在主页添加活动过滤功能（所有活动、即将开始、已结束）
+- 优化活动列表的显示，包括搜索和过滤功能
+- 在主页添加活动排序功能（按日期和参与人数）
+- 优化活动列表的过滤功能，增加更多选项
+- 创建 `lib/services/notification_service.dart` 文件，实现本地通知功能
+- 在活动创建页面中添加活动提醒功能
+- 在群组详情页面中添加活动筛选功能（所有活动、即将开始、已结束）
+- 在群组详情页面中添加活动排序功能（按日期和参与人数）
+- 优化群组详情页面的UI，改进活动列表的显示
+- 创建 `lib/services/comment_service.dart` 文件，实现评论功能
+- 在活动详情页面中添加评论列表和评论输入功能
+- 在 `pubspec.yaml` 中添加 `share_plus` 依赖
+- 在活动详情页面中添加分享功能
+
+### 变更
+- 更新README.md以反映新的项目愿景和主要特点
+- 调整ProjectRequirements.md以适应小型项目需求，包括海洋和天空主题
+- 修改FunctionalDesign.md以匹配项目规模和主题
+- 调整README.md的主要特点列表，突出海天主题和骰子元素
+- 更新技术栈部分，考虑使用Firebase或简单的自建服务器
+- 更新README.md中的联系信息和仓库URL
+- 修改用户注册流程，允许自定义或随机生成用户名
+- 增加小游戏数量到3-5个
+- 缩短项目时间约束到1个月
+- 更新FunctionalDesign.md中的模块设计，包含新增功能
+- 在README.md中添加新功能的描述和应用场景
+- 更新pubspec.yaml文件，修改SDK约束为 '>=3.2.0 <4.0.0'
+- 添加必要的依赖项到pubspec.yaml
+- 更新 `lib/main.dart` 文件，使用新的主题和主页
+- 更新 `lib/pages/home_page.dart`，集成骰子组件
+- 更新 `lib/pages/home_page.dart`，集成活动创建页面
+- 更新 `lib/pages/home_page.dart`，集成活动加入页面
+- 更新 `lib/pages/create_activity_page.dart`，集成活动保存功能
+- 更新 `lib/pages/join_activity_page.dart`，集成活动加入功能
+- 更新 `lib/pages/home_page.dart`，显示已创建的活动列表
+- 更新 `lib/pages/home_page.dart`，实现分类显示活动列表
+- 更新 `lib/pages/home_page.dart`，添加导航到活动详情页面的功能
+- 更新 `lib/pages/activity_details_page.dart`，集成AR功能入口
+- 更新 `lib/pages/home_page.dart`，改进活动列表显示
+- 更新 `lib/services/ar_service.dart`，增加新的AR元素创建方法
+- 更新 `lib/pages/ar_view_page.dart`，集成新的AR元素添加功能
+- 更新 `lib/main.dart`，集成登录页面和用户认证
+- 更新 `lib/pages/login_page.dart`，添加导航到注册页面的功能
+- 更新 `lib/main.dart`，添加注册页面路由
+- 更新 `User` 类，添加颜色属性
+- 更新 `HomePage`，集成用户颜色标识显示
+- 更新 `lib/pages/home_page.dart`，添加群组页面入口按钮
+- 更新 `GroupsPage`，显示群组内的活动列表
+- 修改群组创建过程，使用对话框输入群组名称
+- 更新 `lib/pages/groups_page.dart`，添加导航到群组详情页面的功能
+- 更新 `GroupService`，添加获取群组活动的方法
+- 更新 `group_details_page.dart`，实现活动列表的投票功能显示
+- 更新 `lib/pages/group_details_page.dart`，集成海洋猜谜游戏入口
+- 更新 `lib/pages/group_details_page.dart`，添加查看成员列表的入口
+- 更新 `lib/services/group_service.dart`，添加移除成员的功能
+- 更新 `groups_page.dart`，添加创建群组和加入群组的新功能
+- 修改群组创建过程，成并显示邀请码
+- 更新 `lib/pages/activity_details_page.dart`，优化投票功能的用户界面
+- 更新 `lib/services/activity_service.dart`，在 `Activity` 类中添加参与人数字段
+- 更新 `lib/pages/home_page.dart`，实现活动列表按参与人数正序排列
+- 在活动列表项中显示参与人数信息
+- 更新 `lib/pages/activity_details_page.dart`，集成参与和退出活动功能
+- 优化活动详情页面的UI，显示更多活动信息
+- 更新 `lib/pages/home_page.dart`，添加搜索栏和过滤器
+- 修改活动列表的过滤和排序逻辑
+- 更新 `lib/pages/home_page.dart`，添加新的排序和过滤功能
+- 优化活动列表的显示逻辑，提高用户体验
+- 更新 `pubspec.yaml`，添加 `flutter_local_notifications` 依赖
+- 更新 `lib/pages/create_activity_page.dart`，集成活动提醒功能
+- 更新 `lib/pages/group_details_page.dart`，添加新的筛选和排序功能
+- 优化群组内活动列表的显示逻辑，提高用户体验
+- 更新 `lib/pages/activity_details_page.dart`，集成评论功能
+- 在活动详情页面中添加分享按钮和分享功能
+
+### 待办
+- 设置开发环境
+- 创建初始代码结构
+- 开始实现基本UI框架，融入海洋和天空元素
+- 设置AR开发环境
+- 开始实现基本AR功能，包括海天主题元素
+- 设计3-5个简单AR互动游戏原型，结合海洋和天空主题
+- 实现用户颜色标识系统
+- 开发事件投票功能
+- 创建基于时间和代号的群组加入机制
+- 实现骰子功能
+- 创建活动创建页面
+- 创建活动加入页面
+- 实现活动加入页面
+- 设置AR开发环境
+- 开始实现基本AR功能，包括海天主题元素
+- 实现数据持久化，保存创建的活动和加入的活动
+- 实现已加入活动的显示功能
+- 设置AR开发环境
+- 开始实现基本AR功能，包括海天主题元素
+- 实现用户管理模块，包括注册、登录和用户颜色标识系统
+- 开发事件投票功能
+- 实现AR功能的用户界面
+- 集成AR功能到活动详情页面
+- 完善AR功能，添加更多海天主题元素
+- 实现群组功能
+- 实现用户管理模块，包括注册、登录和用户颜色标识系统
+- 开发事件投票功能
+- 实现群组功能
+- 开发3-5个简单的海洋和天空主题小游戏
+- 在活动详情页面中显示创建者的颜色标识
+- 开发事件投票功能
+- 实现群组功能
+- 开发3-5个简单的海洋和天空主题小游戏
+- 实现群组详情页面
+- 完善群组创建和加入功能
+- 在活动中集成群组功能
+- 开发事件投票功能
+- 完善活动列表显示，包括已加入的活动
+- 开发3-5个简单的海洋和天空主题小游戏
+- 实现群组详情页面
+- 添加群组成员管理功能
+- 实现群组内活动的投票功能
+- 开发群组内的小游戏功能
+- 实现群组内活动的投票功能
+- 开发群组内的小游戏功能
+- 完善群组成员管理功能
+- 实现基于时间和代号的群组加入机制
+- 开发群组内的小游戏功能
+- 完善群组成员管理功能
+- 实现基于时间和代号的群组加入机制
+- 优化投票功能的用户界面
+- 添加投票结果的可视化展示
+- 完善群组成员管理功能
+- 实现基于时间和代号的群组加入机制
+- 开发更多海洋和天空主题的小游戏
+- 优化游戏UI和用户体验
+- 实现游戏结果的群组内分享功能
+- 实现基于时间和代号的群组加入机制
+- 优化投票功能的用户界面
+- 添加更多的海洋和天空主题小游戏
+- 实现游戏结果的群组内分享功能
+- 优化投票功能的用户界面
+- 添加更多的海洋和天空主题小游戏
+- 实现游戏结果的群组内分享功能
+- 添加群组邀请码的有效期显示
+- 实现群组管理员功能，允许管理员更新或刷新邀请码
+- 优化AR功能，增加更多互动元素
+- 更新活动详情页面，优化投票功能的用户界面
+- 在活动详情页面中添加改进的投票功能UI
+- 显示用户当前投票状态和整体投票情况
+- 完善群组功能，包括群组内用户颜色标识系统
+- 实现基于时间和代号的群组加入机制
+- 开发事件投票功能
+- 开发3-5个简单的海洋和天空主题小游戏
+- 实现参与者列表的显示和管理
+- 优化活动创建流程，自动设置创建者为第一个参与者
+- 在群组内集成活动参与功能
+- 实现活动提醒功能
+- 添加活动评论系统
+- 实现活动分享功能
+- 实现活动详情页面
+- 添加活动评论系统
+- 实现活动分享功能
+- 完善AR功能，增加更多互动元素
+- 优化应用整体性能和用户体验
+- 优化AR功能，增加更多互动元素
+- 改进用户体验和界面设计
+- 添加活动提醒功能
+- 实现活动搜索功能
+- 添加用户头像和个人资料页面
+- 实现活动评价系统
+
+### 下一步计划
+- 从待办事项中选择优先级最高的任务开始实施
+- 定期审查和更新待办事项列表
+- 继续完善现有功能，提高用户体验
