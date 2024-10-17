@@ -1,4 +1,3 @@
-
 plugins {
     id "com.android.application"
     id "kotlin-android"
@@ -7,7 +6,7 @@ plugins {
 
 android {
     namespace "com.example.eventsphere"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -21,10 +20,10 @@ android {
 
     defaultConfig {
         applicationId "com.example.eventsphere"
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
-        versionCode flutter.versionCode.toInteger()
-        versionName flutter.versionName
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
