@@ -7,8 +7,8 @@ class Activity {
   final String time;
   final String location;
   final String theme;
-  final Map<String, bool> votes; // 新增：用户投票状态
-  final int participantsCount; // 新增：参与人数字段
+  final Map<String, bool> votes;
+  final int participantsCount;
 
   Activity({
     required this.id,
@@ -17,7 +17,7 @@ class Activity {
     required this.location,
     required this.theme,
     Map<String, bool>? votes,
-    this.participantsCount = 0, // 默认参与人数为0
+    this.participantsCount = 0,
   }) : votes = votes ?? {};
 
   Activity copyWith({
@@ -29,7 +29,7 @@ class Activity {
     int? participantsCount,
   }) {
     return Activity(
-      id: this.id,
+      id: id,
       name: name ?? this.name,
       time: time ?? this.time,
       location: location ?? this.location,
@@ -97,11 +97,14 @@ class ActivityService {
   }
 
   Future<Activity?> getActivityById(String id) async {
-    final prefs = await SharedPreferences.getInstance();
     final createdActivities = await getCreatedActivities();
     final joinedActivities = await getJoinedActivities();
     final allActivities = [...createdActivities, ...joinedActivities];
-    return allActivities.firstWhere((activity) => activity.id == id, orElse: () => null);
+    try {
+      return allActivities.firstWhere((activity) => activity.id == id);
+    } catch (e) {
+      return null;
+    }
   }
 
   Future<void> voteForActivity(String activityId, String userId, bool vote) async {
@@ -109,7 +112,9 @@ class ActivityService {
     final activities = await getCreatedActivities();
     final activityIndex = activities.indexWhere((a) => a.id == activityId);
     if (activityIndex != -1) {
-      activities[activityIndex].votes[userId] = vote;
+      activities[activityIndex] = activities[activityIndex].copyWith(
+        votes: {...activities[activityIndex].votes, userId: vote},
+      );
       await prefs.setString(_createdActivitiesKey, jsonEncode(activities.map((a) => a.toJson()).toList()));
     }
   }

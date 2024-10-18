@@ -40,7 +40,7 @@
 - 创建 `lib/pages/register_page.dart` 文件，实现用户注册功能
 - 在注册页面中添加随机用户名生成功能，使用骰子组件
 - 在 `UserService` 中添加用户颜色生成功能
-- 在主页中显示当前用户的颜色标识
+- 在主页中显示当前用户的颜色识
 - 创建 `lib/services/group_service.dart` 文件，实现群组管理功能
 - 创建 `lib/pages/groups_page.dart` 文件，实现群组列表页面
 - 在主页中添加群组页面入口
@@ -61,7 +61,7 @@
 - 在 `Group` 类中添加 `code` 和 `codeExpiration` 字段
 - 在群组页面中添加加入群组功能
 - 在活动详情页面中添加改进的投票功能UI
-- 显示用前投票状态和整体投票情况
+- 显示用前���票状态和整体投票情况
 - 在 `Activity` 类中添加 `participantsCount` 字段，用于记录活动参与人数
 - 在 `ActivityService` 中添加 `joinActivity` 和 `leaveActivity` 方法
 - 在活动详情页面中添加参与和退出活动的功能
@@ -83,7 +83,7 @@
 
 ### 变更
 - 更新README.md以反映新的项目愿景和主要特点
-- 调整ProjectRequirements.md以适应小型项目需求，包括海洋和天空主题
+- 调整ProjectRequirements.md以适应小型项目需求��包括海洋和天空题
 - 修改FunctionalDesign.md以匹配项目规模和主题
 - 调整README.md的主要特点列表，突出海天主题和骰子元素
 - 更新技术栈部分，考虑使用Firebase或简单的自建服务器
@@ -124,7 +124,7 @@
 - 更新 `lib/services/group_service.dart`，添加移除成员的功能
 - 更新 `groups_page.dart`，添加创建群组和加入群组的新功能
 - 修改群组创建过程，成并显示邀请码
-- 更新 `lib/pages/activity_details_page.dart`，优化投票功能的用户界面
+- 更新 `lib/pages/activity_details_page.dart`，优化投票功能的户界面
 - 更新 `lib/services/activity_service.dart`，在 `Activity` 类中添加参与人数字段
 - 更新 `lib/pages/home_page.dart`，实现活动列表按参与人数正序排列
 - 在活动列表项中显示参与人数信息
@@ -183,8 +183,8 @@
 - 开发3-5个简单的海洋和天空主题小游戏
 - 实现群组详情页面
 - 添加群组成员管理功能
-- 实现群组内活动的投票功能
-- 开发群组内的小游戏功能
+- 实现群组内活动的投票能
+- 开���群组内的小游戏功能
 - 实现群组内活动的投票功能
 - 开发群组内的小游戏功能
 - 完善群组成员管理功能
@@ -238,3 +238,21 @@
 - 从待办事项中选择优先级最高的任务开始实施
 - 定期审查和更新待办事项列表
 - 继续完善现有功能，提高用户体验
+
+### 移除
+- 暂时移除 AR 功能相关的代码和依赖
+- 从 `pubspec.yaml` 中移除 `ar_flutter_plugin` 和 `arkit_plugin` 依赖
+- 移除 `lib/pages/ar_view_page.dart` 文件
+- 从 `activity_details_page.dart` 中移除 AR 相关的代码
+
+### 变更
+- 更新 `pubspec.yaml`，注释掉 AR 相关的依赖
+- 更新 `activity_details_page.dart`，移除 AR 功能入口
+
+### 待办
+- 优化活动列表的显示
+- 实现活动搜索功能
+- 添加活动提醒功能
+- 完善群组内的活动管理
+- 添加活动评论系统
+- 实现活动分享功能

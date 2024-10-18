@@ -7,7 +7,7 @@ class GroupMember {
   final String username;
   final String colorCode;
 
-  GroupMember({required this.userId, required this.username, required this.colorCode});
+  const GroupMember({required this.userId, required this.username, required this.colorCode});
 
   Map<String, dynamic> toJson() => {
     'userId': userId,
@@ -30,7 +30,7 @@ class Group {
   final String code;
   final DateTime codeExpiration;
 
-  Group({
+  const Group({
     required this.id,
     required this.name,
     required this.members,
@@ -64,10 +64,14 @@ class GroupService {
   Future<void> createGroup(String name, String userId, String username) async {
     final prefs = await SharedPreferences.getInstance();
     final groups = await getGroups();
+    final code = _generateGroupCode();
+    final codeExpiration = DateTime.now().add(Duration(hours: 24));
     final newGroup = Group(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       name: name,
       members: [GroupMember(userId: userId, username: username, colorCode: _generateRandomColor())],
+      code: code,
+      codeExpiration: codeExpiration,
     );
     groups.add(newGroup);
     await prefs.setString(_groupsKey, jsonEncode(groups.map((g) => g.toJson()).toList()));
@@ -105,8 +109,9 @@ class GroupService {
     }
   }
 
-  String _generateRandomColor() {
-    return '#${Random().nextInt(0xFFFFFF).toRadixString(16).padLeft(6, '0')}';
+  String _generateGroupCode() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    return List.generate(6, (index) => chars[Random().nextInt(chars.length)]).join();
   }
 
   Future<void> removeMemberFromGroup(String groupId, String userId) async {
@@ -153,8 +158,7 @@ class GroupService {
     return false;
   }
 
-  String _generateGroupCode() {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    return List.generate(6, (index) => chars[Random().nextInt(chars.length)]).join();
+  String _generateRandomColor() {
+    return '#${Random().nextInt(0xFFFFFF).toRadixString(16).padLeft(6, '0')}';
   }
 }

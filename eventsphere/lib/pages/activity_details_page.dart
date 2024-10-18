@@ -4,7 +4,6 @@ import '../services/activity_service.dart';
 import '../services/user_service.dart';
 import '../services/comment_service.dart';
 import '../widgets/dice_widget.dart';
-import 'ar_view_page.dart';
 
 class ActivityDetailsPage extends StatefulWidget {
   final Activity activity;
@@ -39,30 +38,6 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
     }
   }
 
-  void _rollDiceForField(String field) {
-    setState(() {
-      switch (field) {
-        case 'time':
-          _activity = _activity.copyWith(
-            time: '${DateTime.now().hour}:${DateTime.now().minute.toString().padLeft(2, '0')}',
-          );
-          break;
-        case 'location':
-          final locations = ['海滩', '公园', '咖啡厅', '电影院', '游乐园'];
-          _activity = _activity.copyWith(
-            location: locations[DateTime.now().millisecond % locations.length],
-          );
-          break;
-        case 'theme':
-          final themes = ['海洋探险', '天空漫游', '海天盛筵', '星空派对', '海底世界'];
-          _activity = _activity.copyWith(
-            theme: themes[DateTime.now().millisecond % themes.length],
-          );
-          break;
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,13 +56,13 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildDetailRow('时间', _activity.time, 'time'),
-              _buildDetailRow('地点', _activity.location, 'location'),
-              _buildDetailRow('主题', _activity.theme, 'theme'),
+              _buildDetailRow('时间', _activity.time),
+              _buildDetailRow('地点', _activity.location),
+              _buildDetailRow('主题', _activity.theme),
               SizedBox(height: 20),
               Text('参与人数: ${_activity.participantsCount}'),
               SizedBox(height: 20),
-              Text('投票情况', style: Theme.of(context).textTheme.headline6),
+              Text('投票情况', style: Theme.of(context).textTheme.titleLarge),
               _buildVotingSection(),
               SizedBox(height: 20),
               ElevatedButton(
@@ -95,17 +70,7 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
                 child: Text(_isParticipating ? '退出活动' : '参与活动'),
               ),
               SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ARViewPage()),
-                  );
-                },
-                child: Text('查看AR效果'),
-              ),
-              SizedBox(height: 20),
-              Text('评论', style: Theme.of(context).textTheme.headline6),
+              Text('评论', style: Theme.of(context).textTheme.titleLarge),
               _buildCommentsList(),
               _buildCommentInput(),
             ],
@@ -115,7 +80,7 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
     );
   }
 
-  Widget _buildDetailRow(String label, String value, String field) {
+  Widget _buildDetailRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -131,10 +96,7 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
               ),
             ),
           ),
-          DiceWidget(
-            onRoll: () => _rollDiceForField(field),
-            size: 30,
-          ),
+          DiceWidget(onRoll: () {}),
         ],
       ),
     );
@@ -160,7 +122,7 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
                   onPressed: () => _vote(user.id, true),
                   child: Text('赞成'),
                   style: ElevatedButton.styleFrom(
-                    primary: userVote ? Colors.green : null,
+                    backgroundColor: userVote ? Colors.green : null,
                   ),
                 ),
                 SizedBox(width: 10),
@@ -168,7 +130,7 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
                   onPressed: () => _vote(user.id, false),
                   child: Text('反对'),
                   style: ElevatedButton.styleFrom(
-                    primary: hasVoted && !userVote ? Colors.red : null,
+                    backgroundColor: hasVoted && !userVote ? Colors.red : null,
                   ),
                 ),
               ],
@@ -181,35 +143,6 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
         );
       },
     );
-  }
-
-  void _vote(String userId, bool vote) async {
-    await _activityService.voteForActivity(_activity.id, userId, vote);
-    setState(() {
-      _activity.votes[userId] = vote;
-    });
-  }
-
-  Future<void> _joinActivity() async {
-    final user = await _userService.getCurrentUser();
-    if (user != null) {
-      await _activityService.joinActivity(_activity.id, user.id);
-      setState(() {
-        _activity = _activity.copyWith(participantsCount: _activity.participantsCount + 1);
-        _isParticipating = true;
-      });
-    }
-  }
-
-  Future<void> _leaveActivity() async {
-    final user = await _userService.getCurrentUser();
-    if (user != null) {
-      await _activityService.leaveActivity(_activity.id, user.id);
-      setState(() {
-        _activity = _activity.copyWith(participantsCount: _activity.participantsCount - 1);
-        _isParticipating = false;
-      });
-    }
   }
 
   Widget _buildCommentsList() {
@@ -257,6 +190,35 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
         ),
       ],
     );
+  }
+
+  void _vote(String userId, bool vote) async {
+    await _activityService.voteForActivity(_activity.id, userId, vote);
+    setState(() {
+      _activity.votes[userId] = vote;
+    });
+  }
+
+  Future<void> _joinActivity() async {
+    final user = await _userService.getCurrentUser();
+    if (user != null) {
+      await _activityService.joinActivity(_activity.id, user.id);
+      setState(() {
+        _activity = _activity.copyWith(participantsCount: _activity.participantsCount + 1);
+        _isParticipating = true;
+      });
+    }
+  }
+
+  Future<void> _leaveActivity() async {
+    final user = await _userService.getCurrentUser();
+    if (user != null) {
+      await _activityService.leaveActivity(_activity.id, user.id);
+      setState(() {
+        _activity = _activity.copyWith(participantsCount: _activity.participantsCount - 1);
+        _isParticipating = false;
+      });
+    }
   }
 
   void _addComment() async {
