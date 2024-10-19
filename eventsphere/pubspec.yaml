@@ -13,13 +13,10 @@ dependencies:
   firebase_core: ^2.4.0
   firebase_auth: ^4.2.0
   cloud_firestore: ^4.2.0
-  # ar_flutter_plugin: ^0.7.3  # 注释掉这行
-  # arkit_plugin: ^1.0.5  # 注释掉这行
   shared_preferences: ^2.0.15
   vector_math: ^2.1.0
   flutter_local_notifications: ^9.1.5
   share_plus: ^4.0.4
-  arcore_flutter_plugin: ^0.1.0  # 使用最新版本
 
 dev_dependencies:
   flutter_test:

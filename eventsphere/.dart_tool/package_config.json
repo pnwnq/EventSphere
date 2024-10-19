@@ -8,12 +8,6 @@
       "languageVersion": "3.2"
     },
     {
-      "name": "arcore_flutter_plugin",
-      "rootUri": "file:///C:/Users/%E6%AC%A2%E6%AC%A2/AppData/Local/Pub/Cache/hosted/pub.dev/arcore_flutter_plugin-0.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
       "name": "args",
       "rootUri": "file:///C:/Users/%E6%AC%A2%E6%AC%A2/AppData/Local/Pub/Cache/hosted/pub.dev/args-2.6.0",
       "packageUri": "lib/",
@@ -90,12 +84,6 @@
       "rootUri": "file:///C:/Users/%E6%AC%A2%E6%AC%A2/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.10",
       "packageUri": "lib/",
       "languageVersion": "2.17"
-    },
-    {
-      "name": "equatable",
-      "rootUri": "file:///C:/Users/%E6%AC%A2%E6%AC%A2/AppData/Local/Pub/Cache/hosted/pub.dev/equatable-2.0.5",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "fake_async",
@@ -554,7 +542,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2024-10-18T11:27:31.820963Z",
+  "generated": "2024-10-19T15:08:21.219215Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///D:/Dev/flutter",

@@ -243,7 +243,7 @@ class _ActivityDetailsPageState extends State<ActivityDetailsPage> {
   void _shareActivity() {
     final String shareText = '''
 想和她一起玩：${_activity.name}
-时间：${_activity.time}
+时：${_activity.time}
 地点：${_activity.location}
 主题：${_activity.theme}
 参与人数：${_activity.participantsCount}
