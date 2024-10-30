@@ -1,38 +1,38 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
-import 'pages/login_page.dart';
-import 'pages/register_page.dart';
-import 'services/user_service.dart';
+import 'package:eventsphere/pages/home_page.dart';
+import 'package:eventsphere/pages/create_activity_page.dart';
+import 'package:eventsphere/pages/join_activity_page.dart';
+import 'package:eventsphere/pages/activity_details_page.dart';
+import 'package:eventsphere/pages/groups_page.dart';
+import 'package:eventsphere/pages/group_details_page.dart';
+import 'package:eventsphere/pages/login_page.dart';
+import 'package:eventsphere/pages/register_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '想和她一起玩',
+      title: 'EventSphere',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
       ),
-      home: FutureBuilder<User?>(
-        future: UserService().getCurrentUser(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
-          }
-          if (snapshot.hasData) {
-            return HomePage();
-          }
-          return LoginPage();
-        },
-      ),
+      initialRoute: '/',
       routes: {
-        '/home': (context) => HomePage(),
-        '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
+        '/': (context) => const HomePage(),
+        '/create': (context) => const CreateActivityPage(),
+        '/join': (context) => const JoinActivityPage(),
+        '/activity': (context) => const ActivityDetailsPage(),
+        '/groups': (context) => const GroupsPage(),
+        '/group': (context) => const GroupDetailsPage(),
+        '/login': (context) => const LoginPage(),
+        '/register': (context) => const RegisterPage(),
       },
     );
   }

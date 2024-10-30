@@ -10,13 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  firebase_core: ^2.4.0
-  firebase_auth: ^4.2.0
-  cloud_firestore: ^4.2.0
-  shared_preferences: ^2.0.15
-  vector_math: ^2.1.0
-  flutter_local_notifications: ^9.1.5
-  share_plus: ^4.0.4
 
 dev_dependencies:
   flutter_test:

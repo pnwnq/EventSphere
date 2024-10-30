@@ -1,0 +1,1 @@
+ D:\\CursorExercise\\I_Want\\eventsphere\\.dart_tool\\flutter_build\\7bce459025e9a65836a66f8551f99a35\\native_assets.yaml: 
