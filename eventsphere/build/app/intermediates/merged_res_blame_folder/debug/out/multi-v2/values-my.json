@@ -4,7 +4,7 @@
             "outputFile": "com.example.eventsphere.app-mergeDebugResources-24:/values-my/values-my.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\欢欢\\.gradle\\caches\\transforms-3\\6da64a21976a5850d9c212bf73d9adb3\\transformed\\core-1.13.1\\res\\values-my\\values-my.xml",
+                    "source": "C:\\Users\\欢欢\\.gradle\\caches\\transforms-3\\2697cb849d43f336406eb271c005577c\\transformed\\core-1.13.1\\res\\values-my\\values-my.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
